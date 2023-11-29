@@ -1,5 +1,5 @@
 const express = require('express');
-// const colors = require('colors');
+const colors = require('colors/safe');
 const app = express();
 
 // app.use((req, res) => {
@@ -8,7 +8,7 @@ const app = express();
 //   res.send(`<h1>This is my webpage</h1>, { color: 'red' }`);
 // })
 app.get('/', (req, res) => {
-  res.send('This is the homepage')
+  res.send(`<h1>This is the homepage! Let us now test this out</h1>`)
 })
 
 app.get('/o/:forum', (req, res) => {
@@ -27,6 +27,11 @@ app.get('/dogs', (req, res) => {
 
 app.post('/cats', (req, res) => {
   res.send('This is a post to the server!!!')
+})
+
+app.get('/search', (req, res) => {
+  const { q } = req.query;
+  res.send(`Search results for: ${q} `)
 })
 
 //catch all
