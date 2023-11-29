@@ -1,4 +1,5 @@
 const express = require('express');
+// const colors = require('colors');
 const app = express();
 
 // app.use((req, res) => {
@@ -9,6 +10,13 @@ const app = express();
 app.get('/', (req, res) => {
   res.send('This is the homepage')
 })
+
+app.get('/o/:forum', (req, res) => {
+  const { forum } = req.params;
+  res.send(`<h1>You are on the ${forum} forum!!</h1>`)
+})
+
+
 app.get('/cats', (req, res) => {
   res.send('Meow!!!')
 })
